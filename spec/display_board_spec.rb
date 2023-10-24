@@ -1,17 +1,40 @@
 require_relative '../lib/display_board'
 
 describe '/lib/display_board.rb' do
-  it 'defines a method display_board' do
-    expect(defined?(display_board)).to be_truthy
-  end
 
-  context "#display_board method" do
-    it 'represents a cell as a string with 3 spaces' do
-      output = capture_puts{ display_board }
+  # it 'defines a method display_board' do
+  #   expect(defined?(display_board)).to be_truthy
+  # end
 
-      expect(output).to include("   ")
+    it "defines a method display_board" do
+      expect(defined?(display_board)).to be_truthy
     end
-    
+
+  # context "#display_board method" do
+  #   it 'represents a cell as a string with 3 spaces' do
+  #     output = capture_puts{ display_board }
+
+  #     expect(output).to include("   ")
+  #   end
+
+    context "#display_board method" do
+      it "represents a cell as three spaces" do
+        output = capture_puts{ display_board }
+
+        expect(output).to include("   ")
+      end
+
+      it "separates cells with a | character" do
+        output = capture_puts{ display_board }
+
+        expect(output).to include("   |   ")
+      end
+
+      it "prints a 3 cell row" do
+        output = capture_puts{ display_board }
+
+        expect(output).to include("   |   |   ")
+      end
     it 'separates cells with a | character' do
       output = capture_puts{ display_board }
 
